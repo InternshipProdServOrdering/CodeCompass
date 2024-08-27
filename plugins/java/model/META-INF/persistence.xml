@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="ParserPU">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <class>model.JavaAnnotation</class>
+        <class>model.JavaAstNode</class>
+        <class>model.JavaConstructor</class>
+        <class>model.JavaDocComment</class>
+        <class>model.JavaEntity</class>
+        <class>model.JavaEnum</class>
+        <class>model.JavaEnumConstant</class>
+        <class>model.JavaMethod</class>
+        <class>model.JavaImport</class>
+        <class>model.JavaInheritance</class>
+        <class>model.JavaInitializer</class>
+        <class>model.JavaMemberType</class>
+        <class>model.JavaRecord</class>
+        <class>model.JavaRelation</class>
+        <class>model.JavaTypedEntity</class>
+        <class>model.JavaVariable</class>
+
+        <properties>
+            <property name="eclipselink.ddl-generation.output-mode"
+                      value="database"/>
+            <property name="eclipselink.logging.level"
+                      value="WARNING"/>
+        </properties>
+    </persistence-unit>
+</persistence>

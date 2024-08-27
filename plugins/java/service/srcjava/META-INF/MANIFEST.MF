@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: libthrift-0.13.0.jar
+            javalogger.jar
+            javamodel.jar
+            javaservicethrift.jar
+Main-Class: service.srcjava.JavaQueryServer

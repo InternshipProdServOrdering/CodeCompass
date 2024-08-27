@@ -10,6 +10,7 @@ RUN set -x && apt-get update -qq \
   && apt-get -y install --no-install-recommends \
   cmake make \
   default-jdk \
+
   universal-ctags \
   curl ca-certificates gnupg \
   wget \

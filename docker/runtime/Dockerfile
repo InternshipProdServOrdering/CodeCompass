@@ -64,6 +64,7 @@ RUN set -x && apt-get update -qq && \
     libldap-2.5-0 \
     libmagic-dev \
     libthrift-dev \
+
     universal-ctags \
     gcc-11 g++-11 \
     tini && \
@@ -77,6 +78,7 @@ RUN set -x && apt-get update -qq && \
       apt-get install -qq --yes --no-install-recommends \
       libsqlite3-dev; \
     fi && \
+
     apt-get clean && \
     rm -rf /var/lib/apt/lists/ && \
     set +x

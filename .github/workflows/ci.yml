@@ -51,6 +51,7 @@ jobs:
       - name: Install required packages for build
         run: ./.github/scripts/${{ matrix.os }}/setup_build.sh
 
+
       - name: Set has-compiled-dependencies flag
         id: compilation-flag
         run: |
@@ -77,8 +78,10 @@ jobs:
       - name: Compile dependencies
         if: ${{ env.HAS_COMPILED_DEPENDENCIES == 'true' && steps.restore-compiled-dependencies.outputs.cache-hit != 'true' }}
         run: |
+
           chmod +x ./.github/scripts/${{ matrix.os }}/compile_build.sh
           ./.github/scripts/${{ matrix.os }}/compile_build.sh
+
 
       - name: Post compilation configuration (build)
         if: ${{ env.HAS_COMPILED_DEPENDENCIES == 'true' }} 
@@ -216,12 +219,14 @@ jobs:
       - name: Install required packages for build
         run: ./.github/scripts/${{ matrix.os }}/setup_build.sh
 
+
       - name: Install database packages
         run: ./.github/scripts/${{ matrix.os }}/setup_${{matrix.db}}.sh
 
       - name: Set has-compiled-dependencies flag
         id: compilation-flag
         run: |
+
           if [ -f ./.github/scripts/${{ matrix.os }}/compile_build.sh ]; then
             echo "HAS_COMPILED_DEPENDENCIES=true" >> "$GITHUB_ENV"
           else
@@ -239,6 +244,7 @@ jobs:
           restore-keys: |
             ${{ matrix.os }}-compile-install-${{ needs.build.outputs.ubuntu-20-04-compile-hash-key }}
             ${{ matrix.os }}-compile-install-${{ needs.build.outputs.ubuntu-22-04-compile-hash-key }}
+
 
       - name: Download CodeCompass binaries
         uses: actions/download-artifact@v2
